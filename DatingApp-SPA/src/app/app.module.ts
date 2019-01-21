@@ -4,11 +4,14 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
+import {BsDropdownModule} from 'ngx-bootstrap';
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvide } from './_services/error.interceptor.ts.service';
+import { AlertifyService } from './_services/alertify.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
    declarations: [
@@ -20,11 +23,14 @@ import { ErrorInterceptorProvide } from './_services/error.interceptor.ts.servic
    imports: [
       BrowserModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      BsDropdownModule.forRoot()
    ],
    providers: [
       AuthService,
-      ErrorInterceptorProvide
+      ErrorInterceptorProvide,
+AlertifyService,
+JwtHelperService
    ],
    bootstrap: [
       AppComponent
